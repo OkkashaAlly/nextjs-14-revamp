@@ -4,14 +4,15 @@ import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import { LatestInvoice } from '@/app/lib/definitions';
 
+// LIB ---------------------------------------------------------------------
+import {  fetchLatestInvoices } from '@/app/lib/data';
+
+
 // =========================================================================
 // LATEST INVOICES COMPONENT ===============================================
 // =========================================================================
-export default async function LatestInvoices({
-  latestInvoices,
-}: {
-  latestInvoices: LatestInvoice[];
-}) {
+export default async function LatestInvoices() {
+  const latestInvoices = await fetchLatestInvoices();
 
   // RETURN ================================================================
   return (
