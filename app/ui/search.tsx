@@ -19,16 +19,17 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   function handleSearch(e: FormEvent) {
     e.preventDefault();
-    
-    const param = new URLSearchParams(searchParams);
+
+    const params = new URLSearchParams(searchParams);
+    params.set('page', '1');
 
     if (inputValue) {
-      param.set('query', inputValue);
+      params.set('query', inputValue);
     } else {
-      param.delete('query');
+      params.delete('query');
     }
 
-    replace(`${pathname}?${param.toString()}`);
+    replace(`${pathname}?${params.toString()}`);
   }
 
   // RETURN =================================================================
