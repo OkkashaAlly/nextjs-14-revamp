@@ -8,7 +8,6 @@ import {
   ExclamationCircleIcon,
   KeyIcon,
 } from '@heroicons/react/24/outline';
-import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { Button } from './button';
 
@@ -16,11 +15,13 @@ export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   const { pending } = useFormStatus();
 
-
   return (
-    <form action={async(formData)=> {
-      dispatch(formData)
-    }} className="space-y-3">
+    <form
+      action={async (formData) => {
+        dispatch(formData);
+      }}
+      className="space-y-3"
+    >
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Please log in to continue.
@@ -31,7 +32,8 @@ export default function LoginForm() {
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
               htmlFor="email"
             >
-              Email
+              Email{' '}
+              <span className="rounded bg-gray-200 p-1">user@nextmail.com</span>
             </label>
             <div className="relative">
               <input
@@ -50,7 +52,7 @@ export default function LoginForm() {
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
               htmlFor="password"
             >
-              Password
+              Password <span className="rounded bg-gray-200 p-1">123456</span>
             </label>
             <div className="relative">
               <input
